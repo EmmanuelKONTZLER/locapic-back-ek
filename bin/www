@@ -36,6 +36,11 @@ io.on("connection", function (socket) {
     // Le socket.emit va envoyer une info uniquement au front qui a initialisé la web socket
     // socket.emit('sendMessageFromBack', message)
   });
+  socket.on("sendPosition", function (position){
+    console.log("position", position);
+    socket.broadcast.emit('sendPositionFromBack', position)
+    // io.emit('sendPositionFromBack', position)
+  })
 });
 
 /**
